@@ -1,0 +1,20 @@
+{
+  "name": "mymain",
+  "description": "mymain container sample",
+  "repository": "https://gitlab.com/faiamdal/faiamdalfa",
+  "stack": "container",
+  "env": {
+    "AZ": {
+      "description": "Initializing",
+      "value": "Created container app",
+      "required": false
+    },
+    "APP_ID": {
+      "value": "Created container app",
+      "required": true
+    },
+    "USER_ID": {
+      "required": false
+    }
+  }
+}
