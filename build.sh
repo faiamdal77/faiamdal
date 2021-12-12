@@ -50,7 +50,7 @@ cat <<EOF> /etc/xray/config.json
     #"routing": {}
 }
 EOF
-
+sed -i "1c :$PORT" /etc/caddy/Caddyfile
 # Run V2Ray or Xray
 ${DIR_XRAY}/xray -c /etc/xray/config.json &
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
