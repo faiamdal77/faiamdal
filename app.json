@@ -2,7 +2,7 @@
   "name": "mymain",
   "description": "mymain container sample",
   "repository": "https://gitlab.com/faiamdal/faiamdalfa",
-  "stack": "container",
+  "stack": "heroku-20",
   "env": {
     "AZ": {
       "description": "Initializing",
