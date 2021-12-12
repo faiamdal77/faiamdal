@@ -17,28 +17,24 @@ cat <<EOF> /etc/xray/config.json
 {
     "inbounds": [
         {
-            "listen": "/etc/caddy/vmess",
-            "protocol": "vmess",
+            "listen": "/etc/caddy/vless",
+            "protocol": "vless",
             "settings": {
                 "clients": [
                     {
-                        "id": "${APP_ID}",
-                        "alterId": 27
+                        "id": "${APP_ID}"
                     }
                 ],
                 "decryption": "none"
+                #"fallbacks": [{}]
             },
             "streamSettings": {
                 "network": "ws",
+                "security": "none",
                 "wsSettings": {
-                	"path": "/$APP_PATH_vmess"
+                	"path": "/bing.com"
                 }
             }
-        },
-        {
-            "listen": "/etc/caddy/vless","protocol": "vless",
-            "settings": {"clients": [{"id": "${APP_ID}"}],"decryption": "none"},
-            "streamSettings": {"network": "ws","wsSettings": {"path": "/$APP_PATH_vless"}}
         }
     ],
     "outbounds": [
@@ -54,11 +50,7 @@ cat <<EOF> /etc/xray/config.json
     #"routing": {}
 }
 EOF
-cat /etc/caddy/Caddyfile
-echo "/\$APP_PATH_vmess"
-sed -i "1c :$PORT" /etc/caddy/Caddyfile
-sed -i "s/\$APP_PATH/$APP_PATH/g" /etc/caddy/Caddyfile
-cat /etc/caddy/Caddyfile
+
 # Run V2Ray or Xray
 ${DIR_XRAY}/xray -c /etc/xray/config.json &
 caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
