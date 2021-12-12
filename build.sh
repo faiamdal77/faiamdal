@@ -17,6 +17,26 @@ cat <<EOF> /etc/xray/config.json
 {
     "inbounds": [
         {
+            "listen": "/etc/caddy/vmess",
+            "protocol": "vmess",
+            "settings": {
+                "clients": [
+                    {
+                        "id": "${APP_ID}",
+                        "alterId": 27
+                    }
+                ],
+                "decryption": "none"
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "none",
+                "wsSettings": {
+                	"path": "/bing.com_vmess"
+                }
+            }
+        },
+        {
             "listen": "/etc/caddy/vless",
             "protocol": "vless",
             "settings": {
@@ -32,7 +52,7 @@ cat <<EOF> /etc/xray/config.json
                 "network": "ws",
                 "security": "none",
                 "wsSettings": {
-                	"path": "/bing.com"
+                	"path": "/bing.com_vless"
                 }
             }
         }
