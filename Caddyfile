@@ -1,0 +1,15 @@
+:$PORT
+
+@websocket_vmess {
+header Connection *Upgrade*
+header Upgrade    websocket
+path /$APP_PATH_vmess
+}
+reverse_proxy @websocket_vmess unix//etc/caddy/vmess
+
+@websocket_vless {
+header Connection *Upgrade*
+header Upgrade    websocket
+path /$APP_PATH_vless
+}
+reverse_proxy @websocket_vless unix//etc/caddy/vless
