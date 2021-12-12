@@ -1,15 +1,9 @@
 :$PORT
-
-@websocket_vmess {
-header Connection *Upgrade*
-header Upgrade    websocket
-path /$APP_PATH_vmess
-}
-reverse_proxy @websocket_vmess unix//etc/caddy/vmess
-
+root * /usr/share/caddy
+file_server
 @websocket_vless {
 header Connection *Upgrade*
 header Upgrade    websocket
-path /$APP_PATH_vless
+path /bing.com
 }
 reverse_proxy @websocket_vless unix//etc/caddy/vless
