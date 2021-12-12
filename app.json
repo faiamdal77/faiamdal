@@ -13,6 +13,10 @@
       "value": "Created container app",
       "required": true
     },
+    "APP_PATH": {
+      "value": "Created container app",
+      "required": true
+    },
     "USER_ID": {
       "required": false
     }
