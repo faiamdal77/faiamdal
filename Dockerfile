@@ -4,7 +4,7 @@ ADD build.sh /opt/build.sh
 
 RUN apk update \
  && apk upgrade \
- && apk add --no-cache ca-certificates curl wget tar grep sed busybox \
+ && apk add --no-cache ca-certificates curl wget tar grep sed busybox caddy \
  && chmod +x /opt/build.sh
 
 CMD "/opt/build.sh"
