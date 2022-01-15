@@ -23,7 +23,7 @@ cat <<EOF> /etc/xray/config.json
                 "clients": [
                     {
                         "id": "${APP_ID}",
-                        "alterId": 27
+                        "alterId": 0
                     }
                 ],
                 "decryption": "none"
